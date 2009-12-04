@@ -11,9 +11,9 @@ module Riot
         end
       end
       
-      def get(url,&context_definition)
-        context(url,&context_definition).last.setup do
-          get url
+      def get(uri,&context_definition)
+        context("get #{uri}",&context_definition).last.setup do
+          get uri
         end
       end
       

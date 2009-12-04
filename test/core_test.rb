@@ -1,7 +1,7 @@
 require File.dirname(__FILE__)+'/teststrap.rb'
 
 context "My test application" do
-  app OkayApp
+  app Proc.new { [200,{"Content-Type"=>"text/html"},["okay!"]] }
 
   get "/" do
     asserts("is okay") { last_response.status }.equals(200)

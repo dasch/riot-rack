@@ -20,25 +20,34 @@ module Riot
     end
     module SituationExtensions
 
-      def self.find_configru
-        if Dir.glob("config.ru").length > 0
-          File.join(Dir.pwd,"config.ru")
-        else
-          Dir.chdir("..") do
-            find_configru
-          end
-        end
-      end
-
       #the default behavior is to look for
       #a config.ru file starting with current
       #directory and working our way back
       def app
-        app_file = Riot::Rack::SituationExtensions.find_configru
+        file = app_file
         ::Rack::Builder.new {
-          contents = ::File.readlines(app_file).join("\n")
+          contents = ::File.readlines(file).join("\n")
           instance_eval(contents)
         }.to_app
+      end
+
+      def app_file
+        @app_file || find_app_file
+      end
+
+      def app_file=(file)
+        @app_file = file
+      end
+
+      private
+      def find_app_file
+        if Dir.glob("config.ru").length > 0
+          File.join(Dir.pwd,"config.ru")
+        elsif Dir.pwd != "/"
+          Dir.chdir("..") { find_app_file }
+        else
+          raise "Cannot find config.ru"
+        end
       end
     end
   end

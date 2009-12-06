@@ -4,9 +4,9 @@ require 'rack/test'
 module Riot
   module Rack
     module ContextExtensions
-      def app(app)
+      def app(application)
         setup do
-          @app = app
+          @app = application
           def app; @app; end
         end
       end

@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "riot-rack"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Zero friction, convention based testing for your rack apps}
+    gem.description = %Q{Built on top the riot test framework, adds rack specific helpers and macros}
     gem.email = "brian.m.carlson@gmail.com"
     gem.homepage = "http://github.com/brian.carlson/riot-rack"
     gem.authors = ["brianc"]

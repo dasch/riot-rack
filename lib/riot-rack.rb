@@ -3,6 +3,15 @@ require 'riot'
 require 'rack/test'
 module Riot
   module Rack
+    class BodyAsserter
+      def initialize(context)
+        @context = context
+      end
+      def =~(regex)
+        @context.asserts("body matches #{regex.inspect}") { last_response.body }.matches(regex)
+      end
+      alias_method :matches, :=~
+    end
     module ContextExtensions
       def app(application)
         setup do
@@ -15,6 +24,10 @@ module Riot
         context("get #{uri}",&context_definition).last.setup do
           get uri
         end
+      end
+
+      def body
+        BodyAsserter.new(self)
       end
 
     end
@@ -52,8 +65,11 @@ module Riot
     end
   end
 end
-
-Riot::Context.instance_eval { include Riot::Rack::ContextExtensions }
+module Riot
+  class Context
+    include Riot::Rack::ContextExtensions
+  end
+end
 Riot::Situation.instance_eval do
   include Rack::Test::Methods
   include Riot::Rack::SituationExtensions

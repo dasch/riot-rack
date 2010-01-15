@@ -1,6 +1,5 @@
 
 require 'rubygems'
-require 'rack'
 require 'rake/testtask'
 
 

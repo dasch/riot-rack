@@ -1,25 +1,13 @@
 
 require 'riot'
-require 'rack/test'
+require 'riot/rack/context_helpers'
+require 'riot/rack/situation_helpers'
 
 
 class Riot::Situation
-  include Rack::Test::Methods
-
-  # The Rack app under test.
-  attr_reader :app
+  include Riot::Rack::SituationHelpers
 end
 
-
 class Riot::Context
-  # Set the Rack app which is to be tested.
-  #
-  #   context "MyApp" do
-  #     app { MyApp }
-  #     setup { get '/' }
-  #     asserts(:status).equals(200)
-  #   end
-  def app(&block)
-    setup { @app = block.call }
-  end
+  include Riot::Rack::ContextHelpers
 end

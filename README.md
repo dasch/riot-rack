@@ -35,6 +35,12 @@ Then, simply install the riot-rack gem like so:
     sudo gem install riot-rack
 
 
+## Prerequisites
+
+- [Riot](http://github.com/thumblemonks/riot)
+- [Rack::Test](http://github.com/brynary/rack-test)
+
+
 ## License
 
 Copyright (c) 2010 Daniel Schierbeck.

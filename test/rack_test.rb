@@ -7,7 +7,7 @@ require 'riot/rack'
 
 
 context "A Rack app" do
-  app { lambda { [200, {}, "Hello, World!"] } }
+  app { [200, {}, "Hello, World!"] }
 
   context "serving a GET request to '/'" do
     setup { get '/' }

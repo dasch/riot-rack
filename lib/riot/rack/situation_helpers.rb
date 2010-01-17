@@ -7,6 +7,8 @@ module Riot::Rack
     include Rack::Test::Methods
 
     # The Rack app under test.
-    attr_reader :app
+    def app
+      @app || build_app
+    end
   end
 end

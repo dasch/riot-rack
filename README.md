@@ -43,6 +43,6 @@ Then, simply install the riot-rack gem like so:
 
 ## License
 
-Copyright (c) 2010 Daniel Schierbeck.
+Copyright (c) 2010 Daniel Schierbeck, Brian Carlson.
 
 Riot is released under the MIT license. See {file:MIT-LICENSE}.

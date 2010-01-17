@@ -1,5 +1,5 @@
 
-# Testing Rack apps with Riot
+# Riot::Rack
 
 Use [Riot](http://github.com/thumblemonks/riot/) to test your [Rack](http://rack.rubyforge.org/)
 apps easily!

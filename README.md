@@ -10,7 +10,8 @@ Here's the gist of it:
     require 'riot/rack'
 
     context "HelloWorldApp" do
-      # Specify your app using the #app helper.
+      # Specify your app using the #app helper. If you don't specify
+      # one, Riot::Rack will recursively look for a config.ru file.
       app { HelloWorldApp }
 
       # You can use all the Rack::Test helpers in the setup blocks.

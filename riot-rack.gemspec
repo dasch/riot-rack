@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Schierbeck"]
-  s.date = %q{2010-01-17}
+  s.date = %q{2010-01-18}
   s.description = %q{Use the fast, expressive and concise Riot unit-testing framework to test your Rack apps with.}
   s.email = %q{daniel.schierbeck@gmail.com}
   s.extra_rdoc_files = [
@@ -21,11 +21,14 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
+     "config.ru",
      "lib/riot/rack.rb",
      "lib/riot/rack/context_helpers.rb",
      "lib/riot/rack/situation_helpers.rb",
      "riot-rack.gemspec",
-     "test/rack_test.rb"
+     "test/config_file_test.rb",
+     "test/rack_test.rb",
+     "test/teststrap.rb"
   ]
   s.homepage = %q{http://github.com/dasch/riot-rack}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -33,7 +36,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Test your Rack apps with Riot}
   s.test_files = [
-    "test/rack_test.rb"
+    "test/rack_test.rb",
+     "test/config_file_test.rb",
+     "test/teststrap.rb"
   ]
 
   if s.respond_to? :specification_version then

@@ -10,20 +10,20 @@ require 'riot'
 require 'riot/rack'
 
 context "HelloWorldApp" do
-# Specify your app using the #app helper. If you don't specify
-# one, Riot::Rack will recursively look for a config.ru file.
-# Takes either an app class or a block argument.
-app {|env| [200, {}, "Hello, World!"] }
-
-# Alternatively:
+  # Specify your app using the #app helper. If you don't specify
+  # one, Riot::Rack will recursively look for a config.ru file.
+  # Takes either an app class or a block argument.
+  app {|env| [200, {}, "Hello, World!"] }
+  
+  # Alternatively:
   app(HelloWorldApp)
-
-# You can use all the Rack::Test helpers in the setup blocks.
-setup { get '/' }
-
-# You can access the response directly.
-asserts(:status).equals(200)
-asserts(:body).equals("Hello, World!")
+  
+  # You can use all the Rack::Test helpers in the setup blocks.
+  setup { get '/' }
+  
+  # You can access the response directly.
+  asserts(:status).equals(200)
+  asserts(:body).equals("Hello, World!")
 end
 ```
 
